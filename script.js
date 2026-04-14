@@ -39,7 +39,6 @@ function showScreen(screenId) {
     document.getElementById(screenId).classList.remove('hidden');
     
     if(screenId === 'screen-cake') {
-        // Reset candle
         document.getElementById('flame').classList.remove('flame-out');
         document.getElementById('wish-text').innerText = "Make a wish and blow the candle";
         document.getElementById('blow-btn').style.display = 'inline-block';
@@ -59,13 +58,12 @@ function blowCandle() {
 function startTypewriter() {
     const text = "Hi Hrithik... it's Leo. Happy birthday, from the bottom of my heart. I want to thank you for all the love. I hope you have an amazing day... Sending you a big hug. Visca el Barça!💙❤️";
     let i = 0;
-    const speed = 50;
     document.getElementById("typewriter").innerHTML = "";
     function type() {
         if (i < text.length) {
             document.getElementById("typewriter").innerHTML += text.charAt(i);
             i++;
-            setTimeout(type, speed);
+            setTimeout(type, 50);
         }
     }
     type();
@@ -73,4 +71,4 @@ function startTypewriter() {
 
 function playMessi() {
     document.getElementById('messi-audio').play();
-          }
+}
