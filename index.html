@@ -1,120 +1,62 @@
-<!DOCTYPE html>
+        <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>For My Thangam ❤️</title>
-    <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;600;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<title>For My Thangam❤️</title>
+
+<link rel="stylesheet" href="style.css">
+
+<!-- FONT -->
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;600&display=swap" rel="stylesheet">
+
 </head>
+
 <body>
 
-    <div class="container">
-        <div id="screen-lock" class="content-box">
-            <div class="split-view">
-                <div class="photo-side big-photo">
-                    <img src="your-photo.jpg" alt="Our Photo"> 
-                </div>
-                <div class="lock-side">
-                    <h2>enter a password</h2>
-                    <div class="pass-display" id="pass-dots">____</div>
-                    <div class="keypad">
-                        <button onclick="addNum(1)">1</button><button onclick="addNum(2)">2</button><button onclick="addNum(3)">3</button>
-                        <button onclick="addNum(4)">4</button><button onclick="addNum(5)">5</button><button onclick="addNum(6)">6</button>
-                        <button onclick="addNum(7)">7</button><button onclick="addNum(8)">8</button><button onclick="addNum(9)">9</button>
-                        <button onclick="clearPass()">C</button><button onclick="addNum(0)">0</button>
-                    </div>
-                    <p class="hint">Hint: Its our phone password</p>
-                    <button id="lock-next" class="next-btn hidden" onclick="showScreen('screen-surprise')">Next</button>
-                </div>
-            </div>
+<div class="main" id="login">
+
+    <!-- LEFT IMAGE -->
+    <div class="left"></div>
+
+    <!-- RIGHT LOCK -->
+    <div class="right">
+
+        <h3>Enter a passcode</h3>
+
+        <div id="boxes">
+            <div class="box"></div>
+            <div class="box"></div>
+            <div class="box"></div>
+            <div class="box"></div>
         </div>
 
-        <div id="screen-surprise" class="content-box hidden">
-            <h1>I have a surprise for you ladduu!</h1>
-            <p>Open to see your surprise</p>
-            <div class="button-group">
-                <button class="back-btn" onclick="showScreen('screen-lock')">Back</button>
-                <button class="cute-btn" onclick="showScreen('screen-gifts')">Click Here</button>
-            </div>
+        <div class="dialpad">
+            <button onclick="press(1)">1</button>
+            <button onclick="press(2)">2</button>
+            <button onclick="press(3)">3</button>
+            <button onclick="press(4)">4</button>
+            <button onclick="press(5)">5</button>
+            <button onclick="press(6)">6</button>
+            <button onclick="press(7)">7</button>
+            <button onclick="press(8)">8</button>
+            <button onclick="press(9)">9</button>
+            <button>*</button>
+            <button onclick="press(0)">0</button>
+            <button>#</button>
         </div>
 
-        <div id="screen-gifts" class="content-box hidden">
-            <h1>Pick a Gift! 🎁</h1>
-            <div class="gift-container">
-                <div class="gift-item">
-                    <img src="gift1.png" class="gift" onclick="showScreen('screen-letter')">
-                    <span>Letter</span>
-                </div>
-                <div class="gift-item">
-                    <img src="gift2.png" class="gift" onclick="showScreen('screen-cake')">
-                    <span>Cake</span>
-                </div>
-                <div class="gift-item">
-                    <img src="gift3.png" class="gift" onclick="showPopup()">
-                    <span>Special</span>
-                </div>
-            </div>
-            <button class="back-btn" onclick="showScreen('screen-surprise')">Back</button>
-        </div>
+        <p class="hint">Hint: It’s our password</p>
 
-        <div id="screen-letter" class="content-box hidden">
-            <div class="split-view">
-                <div class="photo-side big-photo"><img src="letter-photo.png"></div>
-                <div class="text-side">
-                    <div class="letter">
-                        <p>Happpiestt Birthday Rasamalaiii 🥹🤍. You are the besttt of alll. Enaku theriyum na evlo periya thappu unaku panniruken nu. And ne ena go through pannuva num purinjuka mudiyudhu. I just want you back thango. I cant live without you nejama. Ne happy ah sandhosama irukanum. Happy ah enkuda irukanum. Na unna nalla pathupen . Ne aasapattadhu elame kedaikanum un life la. Indha ulagathula iruka ellla blessings um unaku kedaikanum. Ne happy ah irukanum ma. I love you so much no matter what.</p>
-                    </div>
-                    <button class="back-btn" onclick="showScreen('screen-gifts')">Back to Gifts</button>
-                </div>
-            </div>
-        </div>
-
-        <div id="screen-cake" class="content-box hidden">
-            <h1 class="slide-up">Happppyy birthday thangame🌹🥺</h1>
-            <div class="cake-area">
-                <div id="flame">🔥</div>
-                <img src="cake.png" class="cake-img">
-            </div>
-            <p id="wish-text">Make a wish and blow the candle</p>
-            <div class="button-group">
-                <button class="back-btn" onclick="showScreen('screen-gifts')">Back</button>
-                <button id="blow-btn" class="cute-btn" onclick="blowCandle()">BLOW 💨</button>
-            </div>
-        </div>
-
-        <div id="screen-messi" class="content-box hidden">
-            <div class="split-view">
-                <div class="photo-side big-photo"><img src="messii.jpg"></div>
-                <div class="text-side">
-                    <p id="typewriter" class="type-text"></p>
-                    <audio id="messi-audio" src="messi.mp3"></audio>
-                    <div class="button-group">
-                        <button class="back-btn" onclick="showScreen('screen-gifts')">Back</button>
-                        <button class="cute-btn" onclick="playMessi()">Play Message 🔊</button>
-                    </div>
-                </div>
-            </div>
-        </div>
     </div>
+</div>
 
-    <div id="wrong-pass-modal" class="modal hidden">
-        <div class="modal-content">
-            <p>Ouch! Wrong password cutie 🌸</p>
-            <button class="cute-btn" onclick="closeModal()">Try Again</button>
-        </div>
-    </div>
+<!-- HOME -->
+<div id="home" class="hidden home-screen">
+    <h1>Heloo Handsome❤️</h1>
+    <p>I made this just for you…</p>
+</div>
 
-    <div id="special-person-modal" class="modal hidden">
-        <div class="modal-content">
-            <p>A special person is waiting to wish you</p>
-            <div class="button-group">
-                <button class="back-btn" onclick="closeSpecialModal()">Cancel</button>
-                <button class="cute-btn" onclick="showScreen('screen-messi'); closeSpecialModal();">Click to open gift</button>
-            </div>
-        </div>
-    </div>
+<script src="script.js"></script>
 
-    <script src="script.js"></script>
 </body>
-</html>
+    </html>
