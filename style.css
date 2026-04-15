@@ -1,101 +1,150 @@
-body {
-    margin: 0;
+@import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;600;700&display=swap');
+
+/* 🌸 GENERAL */
+body{
+    margin:0;
     font-family: 'Baloo 2', cursive;
-    background: #ffe6eb;
+    background: linear-gradient(135deg,#ffdde1,#ee9ca7);
+    color:white;
+    text-align:center;
+    overflow-x:hidden;
 }
 
-/* Layout */
-.main {
-    display: flex;
-    height: 100vh;
-    transition: 0.8s;
+/* 📄 PAGE SYSTEM */
+.page{
+    display:none;
+    min-height:100vh;
+    justify-content:center;
+    align-items:center;
+    flex-direction:column;
+    padding:20px;
 }
 
-/* Left image */
-.left {
-    width: 50%;
-    background: url('your-photo.jpg') center/cover no-repeat;
+.page.hidden{
+    display:none;
 }
 
-/* Right */
-.right {
-    width: 50%;
-    background: #AC274F;
-    color: #F2DDBB;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+.page:not(.hidden){
+    display:flex;
 }
 
-/* Boxes */
-#boxes {
-    display: flex;
-    gap: 10px;
-    margin-bottom: 20px;
+/* 🔐 PASSCODE BOXES */
+.box{
+    width:20px;
+    height:20px;
+    border:2px solid white;
+    border-radius:50%;
+    margin:5px;
+    display:inline-block;
 }
 
-.box {
-    width: 20px;
-    height: 20px;
-    border: 2px solid #F2DDBB;
-    transition: 0.3s;
+/* 🔢 DIAL PAD */
+.dial button{
+    padding:15px;
+    margin:5px;
+    border:none;
+    border-radius:12px;
+    font-size:18px;
+    background:white;
+    cursor:pointer;
 }
 
-/* Dialpad */
-.dialpad {
-    display: grid;
-    grid-template-columns: repeat(3, 70px);
-    gap: 15px;
+/* 🎁 BUTTONS */
+button{
+    margin-top:10px;
+    padding:10px 18px;
+    border:none;
+    border-radius:20px;
+    background:#ff4d6d;
+    color:white;
+    font-size:15px;
+    cursor:pointer;
 }
 
-.dialpad button {
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    background: #F2DDBB;
-    color: #AC274F;
-    font-size: 20px;
-    border: none;
-    cursor: pointer;
-    transition: 0.2s;
+/* 💖 CAKE LAYOUT */
+.cakeLayout{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:40px;
+    flex-wrap:wrap;
+    margin-top:20px;
 }
 
-.dialpad button:active {
-    transform: scale(0.9);
+/* 📸 LEFT PHOTO */
+.leftPhoto img{
+    width:180px;
+    height:220px;
+    object-fit:cover;
+    border-radius:20px;
+    box-shadow:0 10px 25px rgba(0,0,0,0.3);
+    transition:0.3s;
 }
 
-/* Hint */
-.hint {
-    font-size: 12px;
-    margin-top: 15px;
+.leftPhoto img:hover{
+    transform:scale(1.05);
 }
 
-/* Home */
-.home-screen {
-    text-align: center;
-    padding-top: 100px;
-    animation: fadeIn 1s ease;
+/* 🎂 RIGHT SIDE */
+.rightCake{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
 }
 
-.hidden {
-    display: none;
+/* 🎂 INPUT */
+input{
+    padding:10px;
+    border-radius:10px;
+    border:none;
+    outline:none;
+    text-align:center;
+    font-size:16px;
 }
 
-/* Hearts */
-.heart {
-    position: fixed;
-    font-size: 20px;
-    animation: floatUp 2s linear forwards;
+/* 🕯️ CANDLES */
+.candles{
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:4px;
+    margin-bottom:10px;
 }
 
-@keyframes floatUp {
-    0% { transform: translateY(0); opacity:1; }
-    100% { transform: translateY(-200px); opacity:0; }
+.candle{
+    font-size:18px;
+    animation: float 1.5s infinite ease-in-out;
 }
 
-/* Fade */
-@keyframes fadeIn {
-    from {opacity:0;}
-    to {opacity:1;}
+@keyframes float{
+    0%{transform:translateY(0);}
+    50%{transform:translateY(-5px);}
+    100%{transform:translateY(0);}
+}
+
+/* 🎂 CAKE IMAGE */
+.cake img{
+    width:200px;
+    border-radius:20px;
+    box-shadow:0 10px 20px rgba(0,0,0,0.3);
+}
+
+/* 💨 CANDLE OFF EFFECT */
+.off{
+    opacity:0;
+    transform:scale(0.5);
+    transition:0.6s ease;
+}
+
+/* ⚽ SUBTITLE */
+#subtitle{
+    margin-top:10px;
+    font-size:16px;
+    min-height:40px;
+}
+
+/* 💖 HEADINGS */
+h1, h2{
+    font-weight:700;
+    letter-spacing:1px;
 }
