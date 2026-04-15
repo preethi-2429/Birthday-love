@@ -1,99 +1,101 @@
 body {
-    background-color: #fce4ec;
+    margin: 0;
+    font-family: 'Baloo 2', cursive;
+    background: #ffe6eb;
+}
+
+/* Layout */
+.main {
     display: flex;
+    height: 100vh;
+    transition: 0.8s;
+}
+
+/* Left image */
+.left {
+    width: 50%;
+    background: url('your-photo.jpg') center/cover no-repeat;
+}
+
+/* Right */
+.right {
+    width: 50%;
+    background: #AC274F;
+    color: #F2DDBB;
+    display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 100vh;
-    margin: 0;
-    /* Cute Font applied here */
-    font-family: 'Baloo 2', cursive;
-    color: #444;
 }
 
-.container {
-    background: white;
-    width: 800px;
-    height: 600px;
-    border-radius: 30px;
-    box-shadow: 0 20px 50px rgba(0,0,0,0.1);
-    overflow: hidden;
-    position: relative;
-    border: 8px solid #fff;
+/* Boxes */
+#boxes {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
 }
 
-.content-box {
-    width: 100%; height: 100%;
-    display: flex; flex-direction: column;
-    justify-content: center; align-items: center;
-    padding: 30px; box-sizing: border-box;
-    animation: fadeIn 0.8s ease;
+.box {
+    width: 20px;
+    height: 20px;
+    border: 2px solid #F2DDBB;
+    transition: 0.3s;
 }
 
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(10px); }
-    to { opacity: 1; transform: translateY(0); }
+/* Dialpad */
+.dialpad {
+    display: grid;
+    grid-template-columns: repeat(3, 70px);
+    gap: 15px;
 }
 
-.split-view { display: flex; width: 100%; height: 100%; gap: 25px; align-items: center; }
-
-/* Making the photo bigger */
-.big-photo { flex: 1.5; }
-.big-photo img {
-    width: 100%;
-    height: 400px;
-    object-fit: cover;
-    border-radius: 25px;
-    box-shadow: 10px 10px 0px #f8bbd0;
-}
-
-.lock-side, .text-side { flex: 1; text-align: center; }
-
-.keypad {
-    display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin: 20px 0;
-}
-
-.keypad button {
-    width: 60px; height: 60px; border-radius: 50%;
-    border: none; background: #fce4ec; cursor: pointer;
-    font-family: 'Baloo 2'; font-weight: 800; font-size: 1.2rem;
+.dialpad button {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: #F2DDBB;
+    color: #AC274F;
+    font-size: 20px;
+    border: none;
+    cursor: pointer;
     transition: 0.2s;
 }
 
-.keypad button:hover { background: #f8bbd0; transform: scale(1.1); }
-
-.button-group { display: flex; gap: 15px; margin-top: 20px; }
-
-.cute-btn, .next-btn {
-    background: #ff4081; color: white; border: none;
-    padding: 12px 30px; border-radius: 25px; cursor: pointer;
-    font-family: 'Baloo 2'; font-weight: 700; font-size: 1.1rem;
+.dialpad button:active {
+    transform: scale(0.9);
 }
 
-.back-btn {
-    background: #bdbdbd; color: white; border: none;
-    padding: 12px 25px; border-radius: 25px; cursor: pointer;
-    font-family: 'Baloo 2';
+/* Hint */
+.hint {
+    font-size: 12px;
+    margin-top: 15px;
 }
 
-.gift-container { display: flex; gap: 30px; margin: 30px 0; }
-.gift-item { display: flex; flex-direction: column; align-items: center; gap: 10px; }
-.gift { width: 130px; cursor: pointer; transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
-.gift:hover { transform: scale(1.2) rotate(5deg); }
-
-.letter {
-    background: #fff9fa; padding: 20px; border-radius: 20px;
-    font-size: 1.05rem; line-height: 1.4; text-align: left;
-    border-left: 5px solid #ff4081;
+/* Home */
+.home-screen {
+    text-align: center;
+    padding-top: 100px;
+    animation: fadeIn 1s ease;
 }
 
-#flame { font-size: 50px; position: absolute; top: -45px; left: 50%; transform: translateX(-50%); transition: 1s; }
-.flame-out { opacity: 0; transform: translateX(-50%) translateY(-30px) scale(0) !important; }
-
-.hidden { display: none !important; }
-
-.modal {
-    position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-    background: rgba(255, 192, 203, 0.8); display: flex; justify-content: center; align-items: center;
-    z-index: 100;
+.hidden {
+    display: none;
 }
-.modal-content { background: white; padding: 40px; border-radius: 30px; text-align: center; box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
+
+/* Hearts */
+.heart {
+    position: fixed;
+    font-size: 20px;
+    animation: floatUp 2s linear forwards;
+}
+
+@keyframes floatUp {
+    0% { transform: translateY(0); opacity:1; }
+    100% { transform: translateY(-200px); opacity:0; }
+}
+
+/* Fade */
+@keyframes fadeIn {
+    from {opacity:0;}
+    to {opacity:1;}
+}
