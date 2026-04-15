@@ -1,74 +1,47 @@
-let currentPass = "";
-const correctPass = "2429";
+let val = "";
 
-function addNum(num) {
-    if (currentPass.length < 4) {
-        currentPass += num;
-        document.getElementById('pass-dots').innerText = "*".repeat(currentPass.length);
-    }
-    
-    if (currentPass.length === 4) {
-        if (currentPass === correctPass) {
-            document.getElementById('lock-next').classList.remove('hidden');
-        } else {
-            document.getElementById('wrong-pass-modal').classList.remove('hidden');
-            clearPass();
-        }
-    }
-}
+// ❤️ HEARTS
+function createHearts() {
+    for (let i = 0; i < 25; i++) {
+        let heart = document.createElement("div");
+        heart.className = "heart";
 
-function clearPass() {
-    currentPass = "";
-    document.getElementById('pass-dots').innerText = "____";
-}
+        let hearts = ["💗","💖","💕","💘"];
+        heart.innerText = hearts[Math.floor(Math.random()*hearts.length)];
 
-function closeModal() {
-    document.getElementById('wrong-pass-modal').classList.add('hidden');
-}
+        heart.style.left = Math.random() * window.innerWidth + "px";
+        heart.style.top = window.innerHeight + "px";
 
-function showPopup() {
-    document.getElementById('special-person-modal').classList.remove('hidden');
-}
+        document.body.appendChild(heart);
 
-function closeSpecialModal() {
-    document.getElementById('special-person-modal').classList.add('hidden');
-}
-
-function showScreen(screenId) {
-    document.querySelectorAll('.content-box').forEach(s => s.classList.add('hidden'));
-    document.getElementById(screenId).classList.remove('hidden');
-    
-    if(screenId === 'screen-cake') {
-        document.getElementById('flame').classList.remove('flame-out');
-        document.getElementById('wish-text').innerText = "Make a wish and blow the candle";
-        document.getElementById('blow-btn').style.display = 'inline-block';
-    }
-
-    if(screenId === 'screen-messi') {
-        startTypewriter();
+        setTimeout(() => heart.remove(), 2000);
     }
 }
 
-function blowCandle() {
-    document.getElementById('flame').classList.add('flame-out');
-    document.getElementById('wish-text').innerText = "Yay! May all your wishes come true Thangame! ❤️";
-    document.getElementById('blow-btn').style.display = 'none';
-}
+// 🔢 PASSCODE
+function press(num){
+    val += num;
 
-function startTypewriter() {
-    const text = "Hi Hrithik... it's Leo. Happy birthday, from the bottom of my heart. I want to thank you for all the love. I hope you have an amazing day... Sending you a big hug. Visca el Barça!💙❤️";
-    let i = 0;
-    document.getElementById("typewriter").innerHTML = "";
-    function type() {
-        if (i < text.length) {
-            document.getElementById("typewriter").innerHTML += text.charAt(i);
-            i++;
-            setTimeout(type, 50);
-        }
+    let boxes = document.querySelectorAll(".box");
+
+    boxes.forEach((b, i) => {
+        b.style.background = i < val.length ? "#F2DDBB" : "transparent";
+    });
+
+    if(val === "2429"){
+        createHearts();
+
+        document.getElementById("login").style.transform = "scale(1.1)";
+        
+        setTimeout(() => {
+            document.getElementById("login").classList.add("hidden");
+            document.getElementById("home").classList.remove("hidden");
+        }, 800);
     }
-    type();
-}
 
-function playMessi() {
-    document.getElementById('messi-audio').play();
-}
+    if(val.length >= 4 && val !== "2429"){
+        alert("Wrong Password Cutie💋");
+        val = "";
+        boxes.forEach(b => b.style.background = "transparent");
+    }
+                      }
